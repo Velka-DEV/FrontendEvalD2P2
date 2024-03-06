@@ -1,8 +1,38 @@
 <div class="flex w-full justify-end">
     <button routerLink="/events/add" router class="px-4 py-2 bg-blue-500 rounded">Add new event</button>
 </div>
+<!--
 <div class="p-4 gap-4 grid grid-cols-2 md:grid-cols-4">
-    @for (event of events; track event.id) {
-        <app-event-card [event]="event" (eventDeleted)="deleteEvent($event)"></app-event-card>
-    }
-</div>
+        @for (event of events; track event.id) {
+            <app-event-card [event]="event" (eventDeleted)="deleteEvent($event)"></app-event-card>
+        }
+    </div>
+-->
+    
+<table class="w-full bg-white/10 rounded-lg border-zinc-500 my-4">
+    <thead>
+        <tr class="*:py-4 *:px-2">
+            <th class="text-left">Title</th>
+            <th class="text-left">Start Date</th>
+            <th class="text-left">End Date</th>
+            <th class="text-left">Location</th>
+            <th class="text-left">Description</th>
+            <th class="text-left">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (event of events; track event.id) {
+            <tr class="*:py-4 *:px-2">
+                <td>{{ event.title }}</td>
+                <td>{{ event.startDate | date }}</td>
+                <td>{{ event.endDate | date }}</td>
+                <td>{{ event.location }}</td>
+                <td>{{ event.description }}</td>
+                <td class="space-x-2">
+                    <a [routerLink]="['/events', event.id, 'edit']" class="text-blue-500">Edit</a>
+                    <button (click)="deleteEvent(event.id)" class="text-red-500">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { Event } from '../../../types';
 import { FormBuilder, ReactiveFormsModule, Validators, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { EventService } from '../../../services/event.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-event-view',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './add-event-view.component.html',
 })
 export class AddEventViewComponent {
