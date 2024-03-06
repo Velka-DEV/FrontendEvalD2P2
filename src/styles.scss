@@ -2,3 +2,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #fff;
+}
+
+input.ng-touched.ng-invalid,
+textarea.ng-touched.ng-invalid  {
+    border: 1px solid red !important;
+}
+
+button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
