@@ -1,24 +1,29 @@
 import { Routes } from '@angular/router';
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
-import { HomeViewComponent } from './views/home-view/home-view.component';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'dashboard/home',
+        redirectTo: 'events',
         pathMatch: 'full'
     },
     {
-        path: 'dashboard',
+        path: 'events',
         component: DefaultLayoutComponent,
         children: [
             {
-                path: 'home',
-                component: HomeViewComponent
+                path: '',
+                loadComponent: () => import('./events/views/list-events-view/list-events-view.component').then(m => m.ListEventsViewComponent)
             },
+        
             {
-                path: 'lazy',
-                loadComponent: () => import('./views/lazy-view/lazy-view.component').then(m => m.LazyViewComponent)
+                path: 'events/:id',
+                loadComponent: () => import('./events/views/show-event-view/show-event-view.component').then(m => m.ShowEventViewComponent)
+            },
+        
+            {
+                path: 'events/:id/edit',
+                loadComponent: () => import('./events/views/edit-event-view/edit-event-view.component').then(m => m.EditEventViewComponent)
             }
         ]
     }
