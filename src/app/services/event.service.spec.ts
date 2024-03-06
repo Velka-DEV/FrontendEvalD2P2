@@ -13,4 +13,16 @@ describe('EventsService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should have a getEvents method', () => {
+    expect(service.getEvents).toBeDefined();
+  });
+
+  it('should be able to get events', () => {
+    service.getEvents().subscribe((events) => {
+      expect(events).toBeTruthy();
+    });
+  });
+ 
+  // ... other tests or mocking api calls
 });

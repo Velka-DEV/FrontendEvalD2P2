@@ -14,8 +14,8 @@ export class EventService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  getEvents(): Observable<Event[]> {
-    return this._httpClient.get<Event[]>(EVENTS_URL);
+  getEvents(date?: Date): Observable<Event[]> {
+    return this._httpClient.get<Event[]>(EVENTS_URL + (date ? `?date=${date.toISOString()}` : ''));
   }
 
   getEvent(id: string): Observable<Event> {

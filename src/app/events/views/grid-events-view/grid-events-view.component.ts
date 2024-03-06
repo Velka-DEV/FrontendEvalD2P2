@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { Event } from '../../../types';
-import { EventService } from '../../../services/event.service';
 import { EventCardComponent } from '../../components/event-card/event-card.component';
 import { RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { EventService } from '../../../services/event.service';
+import { Event } from '../../../types';
 
 @Component({
-  selector: 'app-list-events-view',
+  selector: 'app-grid-events-view',
   standalone: true,
   imports: [EventCardComponent, RouterLink, DatePipe],
-  templateUrl: './list-events-view.component.html',
+  templateUrl: './grid-events-view.component.html',
 })
-export class ListEventsViewComponent {
+export class GridEventsViewComponent {
   events: Event[] = [];
 
   constructor(private _eventService: EventService) {

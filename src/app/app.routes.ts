@@ -4,7 +4,7 @@ import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'events',
+        redirectTo: 'events/grid',
         pathMatch: 'full'
     },
     {
@@ -12,8 +12,12 @@ export const routes: Routes = [
         component: DefaultLayoutComponent,
         children: [
             {
-                path: '',
-                loadComponent: () => import('./events/views/list-events-view/list-events-view.component').then(m => m.ListEventsViewComponent)
+                path: 'table',
+                loadComponent: () => import('./events/views/table-events-view/table-events-view.component').then(m => m.ListEventsViewComponent)
+            },
+            {
+                path: 'grid',
+                loadComponent: () => import('./events/views/grid-events-view/grid-events-view.component').then(m => m.GridEventsViewComponent)
             },
             {
                 path: 'add',

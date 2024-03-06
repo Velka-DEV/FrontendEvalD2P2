@@ -1,15 +1,9 @@
-<div class="flex w-full justify-end">
+<div class="flex w-full justify-between">
     <button routerLink="/events/add" router class="px-4 py-2 bg-blue-500 rounded">Add new event</button>
+    <input type="datetime-local" class="bg-white/10 border-zinc-500 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white/20" [formControl]="dateControl" (ngModelChange)="loadEvents()" />
 </div>
-<!--
-<div class="p-4 gap-4 grid grid-cols-2 md:grid-cols-4">
-        @for (event of events; track event.id) {
-            <app-event-card [event]="event" (eventDeleted)="deleteEvent($event)"></app-event-card>
-        }
-    </div>
--->
     
-<table class="w-full bg-white/10 rounded-lg border-zinc-500 my-4">
+<table class="table-auto w-full bg-white/10 rounded-lg border-zinc-500 my-4">
     <thead>
         <tr class="*:py-4 *:px-2">
             <th class="text-left">Title</th>

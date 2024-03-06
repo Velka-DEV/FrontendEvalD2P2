@@ -36,7 +36,7 @@ export class EditEventViewComponent {
       };
       this.eventService.updateEvent(event).subscribe({
         next: () => {
-          this.router.navigate(['/events']);
+          this.router.navigate(['/events/grid']);
         },
         error: (error) => {
           console.error('There was an error!', error);
