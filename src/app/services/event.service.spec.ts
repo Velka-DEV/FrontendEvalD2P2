@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OxyaService } from './oxya.service';
+import { EventService } from './event.service';
 
-describe('OxyaService', () => {
-  let service: OxyaService;
+describe('EventsService', () => {
+  let service: EventService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(OxyaService);
+    service = TestBed.inject(EventService);
   });
 
   it('should be created', () => {
