@@ -1,0 +1,9 @@
+<p>Posts</p>
+<div class="grid grid-cols-4 gap-4 p-4">
+    @for (post of posts; track post.id) {
+        <div class="border rounded-lg p-2 space-y-2 drop-shadow-lg hover:scale-125 transition bg-white">
+            <h2 class="font-bold text-md underline decoration-pink-500 underline-offset-2 decoration-4">{{ post.title }}</h2>
+            <p>{{ post.body }}</p>
+        </div>
+    }
+</div>
