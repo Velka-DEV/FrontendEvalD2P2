@@ -1,0 +1,17 @@
+@if (event) {
+    <div class="rounded-lg border p-4 bg-white/10">
+        <div class="flex justify-between items-center py-4">
+            <h2 class="text-xl font-bold">{{ event.title }}</h2>
+            
+        </div>
+        <p class="text-gray-500">Start: {{ event.startDate | date }}</p>
+        <p class="text-gray-500">End: {{ event.endDate | date }}</p>
+        <p class="text-gray-500">Location: {{ event.location }}</p>
+        <p class="text-gray-500">Description: {{ event.description }}</p>
+        <div class="flex gap-2 py-4 justify-end">
+            <a [routerLink]="['/events', event.id, 'edit']" class="text-blue-500">Edit</a>
+            <button (click)="deleteEvent(event.id)" class="text-red-500">Delete</button>
+        </div>
+    </div>
+}
+    
